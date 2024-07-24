@@ -37,7 +37,7 @@ Indian-Agriculture-Analytics/
 
 ## Demo
 Watch the demo video below to see the application in action:
-
+[![asciicast](https://i.imgur.com/PEpTfrn.jpeg)](https://github.com/user-attachments/assets/1e51bf00-5350-434d-b45f-fee6e383d9aa)
 
 
 ## Getting Started
