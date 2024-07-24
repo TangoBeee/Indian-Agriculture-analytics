@@ -50,8 +50,8 @@ Make sure you have the following installed:
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/TangoBeee/Indian-Agriculture-analytics.git
+cd Indian-Agriculture-analytics
 ```
 2. Install dependencies:
 ```bash
