@@ -6,9 +6,21 @@ import YearlyTable from './components/YearlyTable';
 import CropTable from './components/CropTable';
 import "./App.css"
 
+interface YearlyData {
+  year: string;
+  max: string;
+  min: string;
+}
+
+interface CropData {
+  crop: string;
+  avgYield: string;
+  avgArea: string;
+}
+
 const App: React.FC = () => {
-  const [yearlyTable, setYearlyTable] = useState([]);
-  const [cropTable, setCropTable] = useState([]);
+  const [yearlyTable, setYearlyTable] = useState<YearlyData[]>([]);
+  const [cropTable, setCropTable] = useState<CropData[]>([]);
 
   useEffect(() => {
     const getData = async () => {
