@@ -1,7 +1,37 @@
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
-import { theme } from "./theme";
+import React, { useEffect, useState } from 'react';
+import { MantineProvider } from '@mantine/core';
+import { fetchCropData } from './services/dataService';
+import { analyzeCropData } from './utils/dataAnalysis';
+import YearlyTable from './components/YearlyTable';
+import CropTable from './components/CropTable';
+import "./App.css"
 
-export default function App() {
-  return <MantineProvider theme={theme}>App</MantineProvider>;
-}
+const App: React.FC = () => {
+  const [yearlyTable, setYearlyTable] = useState([]);
+  const [cropTable, setCropTable] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchCropData();
+      const { yearlyTable, cropTable } = analyzeCropData(data);
+      setYearlyTable(yearlyTable);
+      setCropTable(cropTable);
+    };
+
+    getData();
+  }, []);
+
+  return (
+    <MantineProvider>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <h1>Indian Agriculture Data Analysis</h1>
+        <h2>Yearly Crop Production</h2>
+        <YearlyTable data={yearlyTable} />
+        <h2>Crop Averages (1950-2020)</h2>
+        <CropTable data={cropTable} />
+      </div>
+    </MantineProvider>
+  );
+};
+
+export default App;
